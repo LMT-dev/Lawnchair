@@ -22,8 +22,8 @@ import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
 
-import ch.deletescape.lawnchair.Launcher;
-import ch.deletescape.lawnchair.config.FeatureFlags;
+import fr.letmethink.lawnchair.Launcher;
+import fr.letmethink.lawnchair.config.FeatureFlags;
 
 public class LauncherClient {
     private static AppServiceConnection sApplicationConnection;

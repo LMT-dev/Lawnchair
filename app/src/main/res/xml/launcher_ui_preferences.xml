@@ -6,7 +6,7 @@
         android:key="prefCat_homeScreen"
         android:title="@string/pref_cat_homescreen">
 
-        <ch.deletescape.lawnchair.preferences.IconPackPreference
+        <fr.letmethink.lawnchair.preferences.IconPackPreference
             android:key="pref_iconPackPackage"
             android:title="@string/icon_pack_preference_title"
             android:summary="@string/icon_pack_preference_summary"
@@ -68,7 +68,7 @@
             android:defaultValue="@string/generalDefault"
             android:persistent="true" />
 
-        <ch.deletescape.lawnchair.preferences.SeekbarPreference
+        <fr.letmethink.lawnchair.preferences.SeekbarPreference
             android:key="pref_iconScaleSB"
             android:title="@string/icon_scale_pref_title"
             app:minValue="0.3"
@@ -78,7 +78,7 @@
             app:defaultValue="1.0"
             android:persistent="true" />
 
-        <ch.deletescape.lawnchair.preferences.SeekbarPreference
+        <fr.letmethink.lawnchair.preferences.SeekbarPreference
             android:key="pref_iconTextScaleSB"
             android:title="@string/icon_text_scale_pref_title"
             app:minValue="0.3"
@@ -152,7 +152,7 @@
             android:defaultValue="false"
             android:persistent="true" />
 
-        <ch.deletescape.lawnchair.preferences.SeekbarPreference
+        <fr.letmethink.lawnchair.preferences.SeekbarPreference
             android:key="pref_blurRadius"
             android:title="@string/blur_radius_pref_title"
             android:dependency="pref_enableBlur"
@@ -162,7 +162,7 @@
             app:summaryFormat="%.0f"
             android:persistent="true" />
 
-        <ch.deletescape.lawnchair.preferences.SeekbarPreference
+        <fr.letmethink.lawnchair.preferences.SeekbarPreference
             android:key="pref_allAppsOpacitySB"
             android:title="@string/all_apps_opacity_pref_title"
             app:minValue="0"

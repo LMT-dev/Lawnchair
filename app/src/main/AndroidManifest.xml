@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="ch.deletescape.lawnchair">
+    package="fr.letmethink.lawnchair">
 
     <permission
         android:name="com.android.launcher.permission.INSTALL_SHORTCUT"
@@ -8,16 +8,16 @@
         android:label="@string/permlab_install_shortcut"
         android:protectionLevel="dangerous" />
     <permission
-        android:name="ch.deletescape.lawnchair.permission.QSB"
+        android:name="fr.letmethink.lawnchair.permission.QSB"
         android:label="QSB"
         android:protectionLevel="normal" />
     <permission
-        android:name="ch.deletescape.lawnchair.permission.READ_SETTINGS"
+        android:name="fr.letmethink.lawnchair.permission.READ_SETTINGS"
         android:description="@string/permdesc_read_settings"
         android:label="@string/permlab_read_settings"
         android:protectionLevel="normal" />
     <permission
-        android:name="ch.deletescape.lawnchair.permission.WRITE_SETTINGS"
+        android:name="fr.letmethink.lawnchair.permission.WRITE_SETTINGS"
         android:description="@string/permdesc_write_settings"
         android:label="@string/permlab_write_settings"
         android:protectionLevel="signatureOrSystem" />
@@ -30,23 +30,23 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
     <uses-permission android:name="android.permission.SET_WALLPAPER" />
-    <uses-permission android:name="ch.deletescape.lawnchair.permission.READ_SETTINGS" />
-    <uses-permission android:name="ch.deletescape.lawnchair.permission.WRITE_SETTINGS" />
-    <uses-permission android:name="ch.deletescape.lawnchair.permission.QSB" />
+    <uses-permission android:name="fr.letmethink.lawnchair.permission.READ_SETTINGS" />
+    <uses-permission android:name="fr.letmethink.lawnchair.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="fr.letmethink.lawnchair.permission.QSB" />
 
     <application
-        android:name=".App"
-        android:backupAgent=".LauncherBackupAgent"
+        android:name="fr.letmethink.lawnchair.App"
+        android:backupAgent="fr.letmethink.lawnchair.LauncherBackupAgent"
         android:fullBackupContent="@xml/backupscheme"
         android:fullBackupOnly="true"
         android:hardwareAccelerated="true"
-        android:icon="@mipmap/ic_launcher_home"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/derived_app_name"
         android:largeHeap="true"
         android:restoreAnyVersion="true"
         android:supportsRtl="true">
         <activity
-            android:name=".Launcher"
+            android:name="fr.letmethink.lawnchair.Launcher"
             android:clearTaskOnLaunch="true"
             android:configChanges="keyboard|keyboardHidden|navigation"
             android:enabled="true"
@@ -64,10 +64,11 @@
                 <category android:name="android.intent.category.HOME" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.MONKEY" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".settings.ui.SettingsActivity"
+            android:name="fr.letmethink.lawnchair.settings.ui.SettingsActivity"
             android:autoRemoveFromRecents="true"
             android:label="@string/settings_button_text"
             android:theme="@style/SettingsTheme">
@@ -78,7 +79,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="ch.deletescape.wallpaperpicker.WallpaperPickerActivity"
+            android:name="fr.letmethink.wallpaperpicker.WallpaperPickerActivity"
             android:finishOnCloseSystemDialogs="true"
             android:label="@string/pick_wallpaper"
             android:screenOrientation="portrait"
@@ -90,7 +91,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="ch.deletescape.wallpaperpicker.WallpaperCropActivity"
+            android:name="fr.letmethink.wallpaperpicker.WallpaperCropActivity"
             android:finishOnCloseSystemDialogs="true"
             android:label="@string/crop_wallpaper"
             android:screenOrientation="portrait"
@@ -105,26 +106,26 @@
         </activity>
 
         <provider
-            android:name=".LauncherProvider"
-            android:authorities="ch.deletescape.lawnchair.settings"
+            android:name="fr.letmethink.lawnchair.LauncherProvider"
+            android:authorities="fr.letmethink.lawnchair.settings"
             android:exported="true"
-            android:readPermission="ch.deletescape.lawnchair.permission.READ_SETTINGS"
-            android:writePermission="ch.deletescape.lawnchair.permission.WRITE_SETTINGS" />
+            android:readPermission="fr.letmethink.lawnchair.permission.READ_SETTINGS"
+            android:writePermission="fr.letmethink.lawnchair.permission.WRITE_SETTINGS" />
 
         <receiver
-            android:name=".InstallShortcutReceiver"
+            android:name="fr.letmethink.lawnchair.InstallShortcutReceiver"
             android:permission="com.android.launcher.permission.INSTALL_SHORTCUT">
             <intent-filter>
                 <action android:name="com.android.launcher.action.INSTALL_SHORTCUT" />
             </intent-filter>
         </receiver>
-        <receiver android:name=".AppWidgetsRestoredReceiver">
+        <receiver android:name="fr.letmethink.lawnchair.AppWidgetsRestoredReceiver">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_HOST_RESTORED" />
             </intent-filter>
         </receiver>
         <receiver
-            android:name=".pixelify.WeatherUpdateReciever"
+            android:name="fr.letmethink.lawnchair.pixelify.WeatherUpdateReciever"
             android:permission="android.permission.CAPTURE_AUDIO_HOTWORD">
             <intent-filter>
                 <action android:name="com.google.android.apps.nexuslauncher.updateweather" />
@@ -132,7 +133,7 @@
         </receiver>
 
         <service
-            android:name=".notification.NotificationListener"
+            android:name="fr.letmethink.lawnchair.notification.NotificationListener"
             android:label="@string/notification_listener_label"
             android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
             <intent-filter>
@@ -140,7 +141,7 @@
             </intent-filter>
         </service>
         <service
-            android:name=".dynamicui.ColorExtractionService"
+            android:name="fr.letmethink.lawnchair.dynamicui.ColorExtractionService"
             android:exported="false"
             android:label="@string/color_extraction_label"
             android:process=":color_extraction" />
@@ -150,11 +151,11 @@
             android:value="true" />
 
         <activity
-            android:name=".iconpack.EditIconActivity"
-            android:parentActivityName=".Launcher"
+            android:name="fr.letmethink.lawnchair.iconpack.EditIconActivity"
+            android:parentActivityName="fr.letmethink.lawnchair.Launcher"
             android:theme="@style/SettingsTheme" />
-        <activity android:name=".iconpack.IconPickerActivity"
-            android:parentActivityName=".iconpack.EditIconActivity"
+        <activity android:name="fr.letmethink.lawnchair.iconpack.IconPickerActivity"
+            android:parentActivityName="fr.letmethink.lawnchair.iconpack.EditIconActivity"
             android:theme="@style/SettingsTheme"/>
     </application>
 
